@@ -1,0 +1,9 @@
+sudo apt-get update
+sudo apt-get install postgresql postgresql-contrib
+
+pip install psycopg2-binary                                               --- package for postgresql
+
+docker exec -it backend pytest ./src -s                                   --- run pytests in docker
+docker exec -it backend_test_app python ./src/manage.py makemigrations    --- makemigration in docker
+docker exec -it backend_test_app python ./src/manage.py migrate           --- migration in docker
+docker-compose -f dc.yml up -d --build                                    --- container build

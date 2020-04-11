@@ -1,0 +1,32 @@
+version: "3"
+
+services:
+
+  backend:
+    build: .
+    command: python src/manage.py runserver 0.0.0.0:8000
+    container_name: backend_test_app
+    restart: always
+    env_file:
+      - .env
+    depends_on:
+      - postgres
+    volumes:
+      - ./:/srv/project
+    ports:
+      - "8000:8000"
+      - "8001:8001"
+
+  postgres:
+    image: postgres:11.3
+    container_name: postgres_test_app
+    restart: always
+    ports:
+      - "5432:5432"
+    env_file:
+      - .env
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata: {}
