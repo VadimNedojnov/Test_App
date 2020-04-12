@@ -1,7 +1,7 @@
 from django.views.generic.list import ListView
 
 
-from logger.models import Logger
+from logger.models import Logger, IpLogger
 
 
 class LogsView(ListView):
@@ -13,3 +13,8 @@ class LogsView(ListView):
         queryset = Logger.objects.all()
         context['logs'] = queryset
         return context
+
+
+class IpLogListView(ListView):
+    queryset = IpLogger.objects.all()
+    template_name = 'ip_logs_list.html'

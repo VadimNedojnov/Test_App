@@ -38,14 +38,22 @@
         {% if user.is_authenticated %}
         <li class="nav-item">
           <a class="nav-link js-scroll-trigger" href="{% url 'index' %}#biography">Biography</a>
+        </li>
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'logout' %}">LogOut</a>
+          <a class="nav-link js-scroll-trigger"
+             href="{% url 'account:edit-profile' request.user.id %}">Edit Profile</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="{% url 'password_reset' %}">Password Reset</a>
         </li>
         <li class="nav-item">
+          <a class="nav-link" href="{% url 'logout' %}">LogOut</a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link" href="{% url 'logger:logs' %}">Logs</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'logger:ip-logs' %}">IP Logs</a>
         </li>
         {% else %}
         <li class="nav-item">

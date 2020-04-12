@@ -11,3 +11,9 @@ class Logger(models.Model):
     user_id = models.IntegerField(null=True, blank=True)
     user_name = models.CharField(max_length=20, null=True, blank=True)
     created = models.DateTimeField(auto_now_add=True)
+
+
+class IpLogger(models.Model):
+    changed_id = models.IntegerField()
+    user_ip = models.CharField(max_length=20)
+    created = models.DateTimeField(auto_now_add=True)

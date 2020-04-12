@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}IP Logs{% endblock title %}
+
+{% block content %}
+
+<div>
+    <table class="table table-bordered table-sm">
+        <caption>IP Logs List</caption>
+        <thead class="thead-dark">
+            <tr>
+                <th>ID</th>
+                <th>IP</th>
+                <th>Changed id</th>
+                <th>Created</th>
+            </tr>
+        </thead>
+        {% for obj in object_list %}
+            <tr>
+                <th>{{ obj.id }}</th>
+                <td>{{ obj.user_ip }}</td>
+                <td>{{ obj.changed_id }}</td>
+                <td>{{ obj.created }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+</div>
+{% endblock %}
