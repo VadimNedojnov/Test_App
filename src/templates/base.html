@@ -32,38 +32,29 @@
     </a>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav">
-        {% if user.is_authenticated %}
         <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" href="{% url 'index' %}#about">About</a>
+          <a class="nav-link js-scroll-trigger" href="{% url 'index' %}#about">Profile</a>
         </li>
+        {% if user.is_authenticated %}
         <li class="nav-item">
           <a class="nav-link js-scroll-trigger" href="{% url 'index' %}#biography">Biography</a>
         <li class="nav-item">
-          <a class="nav-link" href="{}">My Profile</a>
+          <a class="nav-link" href="{% url 'logout' %}">LogOut</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{}">LogOut</a>
+          <a class="nav-link" href="{% url 'password_reset' %}">Password Reset</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{}">Password Reset</a>
+          <a class="nav-link" href="{% url 'logger:logs' %}">Logs</a>
         </li>
         {% else %}
         <li class="nav-item">
-          <a class="nav-link" href="{}">SignUp</a>
+          <a class="nav-link" href="{% url 'login' %}">LogIn</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{}">LogIn</a>
+          <a class="nav-link" href="{% url 'account:signup' %}">SignUp</a>
         </li>
         {% endif %}
-        <li class="nav-item">
-          <a class="nav-link" href="{}">Download Rates</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{}">Latest Rates</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{}">Contact Us</a>
-        </li>
       </ul>
     </div>
   </nav>

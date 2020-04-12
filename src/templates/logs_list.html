@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}Logs{% endblock title %}
+
+{% block content %}
+
+<div>
+    <table class="table table-bordered table-sm">
+        <caption>Logs List</caption>
+        <thead class="thead-dark">
+            <tr>
+                <th>ID</th>
+                <th>Path</th>
+                <th>Method</th>
+                <th>Execution time</th>
+                <th>User Name</th>
+                <th>Created</th>
+            </tr>
+        </thead>
+        {% for log in logs %}
+            <tr>
+                <th>{{ log.id }}</th>
+                <td>{{ log.path }}</td>
+                <td>{{ log.get_method_display }}</td>
+                <td>{{ log.time_delta }}</td>
+                <td>{{ log.user_name }}</td>
+                <td>{{ log.created }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+</div>
+{% endblock %}

@@ -1,4 +1,6 @@
 from django import forms
+from django.core.exceptions import ValidationError
+
 
 from account.models import User
 
@@ -16,12 +18,18 @@ class SignUpForm(forms.ModelForm):
         if not self.errors:
             if cleaned_data['password'] != cleaned_data['password2']:
                 raise forms.ValidationError('Passwords do not match!')
+
+        phone = self.cleaned_data['phone']
+        if not phone.isdigit():
+            raise ValidationError(f'Phone number {phone} consists not only from digits. '
+                                  f'It should be introduced like this example: 123456789')
+
         return cleaned_data
 
     def save(self, commit=True):
 
-        user = super().save(commit=False)  # no save to database
-        user.set_password(self.cleaned_data['password'])  # password should be hashed!
-        user.is_active = True   # user cannot login
+        user = super().save(commit=False)
+        user.set_password(self.cleaned_data['password'])
+        user.is_active = True
         user.save()
         return user

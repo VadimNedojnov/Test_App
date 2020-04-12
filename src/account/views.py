@@ -11,3 +11,4 @@ class SignUpView(CreateView):
     queryset = User.objects.all()
     success_url = reverse_lazy('index')
     form_class = SignUpForm
+
