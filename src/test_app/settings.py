@@ -57,6 +57,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'test_app.context_processors.additional_content'
             ],
         },
     },
@@ -118,6 +119,8 @@ AUTH_USER_MODEL = 'account.User'
 
 LOGIN_REDIRECT_URL = reverse_lazy('index')
 LOGOUT_REDIRECT_URL = reverse_lazy('index')
+
+SOME_ADDITIONAL_CONTENT = 'There is a content for content_processor'
 
 try:
     from test_app.settings_local import *

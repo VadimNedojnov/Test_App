@@ -19,6 +19,8 @@
         <div class="subheading mb-5">Birth date: {{ user.birth_date }}
         </div>
         {% endif %}
+        <div class="subheading mb-5">Content from content processor: {{ SOME_ADDITIONAL_CONTENT }}
+        </div>
         <div class="social-icons">
           {% if user.linkedin_link %}
           <a href="{{ user.linkedin_link }}">
