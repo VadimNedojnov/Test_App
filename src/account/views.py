@@ -48,4 +48,4 @@ class EditProfileView(UpdateView):
             user_ip=ip,
             changed_id=self.request.user.id
         )
-        return super().get_success_url()
+
