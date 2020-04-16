@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}Change Logs{% endblock title %}
+
+{% block content %}
+
+<div>
+    <table class="table table-bordered table-sm">
+        <caption>Change Logs List</caption>
+        <thead class="thead-dark">
+            <tr>
+                <th>ID</th>
+                <th>User Name</th>
+                <th>Message</th>
+                <th>Created</th>
+            </tr>
+        </thead>
+        {% for obj in object_list %}
+            <tr>
+                <th>{{ obj.id }}</th>
+                <td>{{ obj.user_name }}</td>
+                <td>{{ obj.message }}</td>
+                <td>{{ obj.created }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+</div>
+{% endblock %}

@@ -1,7 +1,7 @@
 from django.views.generic.list import ListView
 
 
-from logger.models import Logger, IpLogger
+from logger.models import Logger, IpLogger, LogCreatedEditedDeleted
 
 
 class LogsView(ListView):
@@ -18,3 +18,8 @@ class LogsView(ListView):
 class IpLogListView(ListView):
     queryset = IpLogger.objects.all()
     template_name = 'ip_logs_list.html'
+
+
+class ChangeLogListView(ListView):
+    queryset = LogCreatedEditedDeleted.objects.all()
+    template_name = 'change_logs_list.html'

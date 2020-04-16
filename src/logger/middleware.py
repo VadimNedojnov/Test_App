@@ -19,8 +19,6 @@ class LoggerMiddleware:
         Logger.objects.create(
             path=request.path,
             method=mch.METHOD_CHOICES_REVERSED[request.method],
-            time_delta=full_time,
-            user_id=request.user.pk,
-            user_name=request.user.username
+            time_delta=full_time
             )
         return response

@@ -1,11 +1,14 @@
 sudo apt-get update
 sudo apt-get install postgresql postgresql-contrib
 
-pip install psycopg2-binary                                               --- package for postgresql
+pip install psycopg2-binary                                                                               --- package for postgresql
 
-docker exec -it backend pytest ./src -s                                   --- run pytests in docker
-docker exec -it backend_test_app python ./src/manage.py makemigrations    --- makemigration in docker
-docker exec -it backend_test_app python ./src/manage.py migrate           --- migration in docker
-docker-compose -f dc.yml up -d --build                                    --- container build
-docker exec -it backend_test_app bash                                     --- enter to the container bush
-docker-compose -f dc.yml up -d --remove-orphans                           --- containers deleting
+docker exec -it backend pytest ./src -s                                                                   --- run pytests in docker
+docker exec -it backend_test_app python ./src/manage.py makemigrations                                    --- makemigration in docker
+docker exec -it backend_test_app python ./src/manage.py migrate                                           --- migration in docker
+docker-compose -f dc.yml up -d --build                                                                    --- container build
+docker exec -it backend_test_app bash                                                                     --- enter to the container bush
+docker-compose -f dc.yml up -d --remove-orphans                                                           --- containers deleting
+docker exec -it backend_test_app pytest ./src                                                             --- run tests
+docker exec -it backend_test_app pytest --cov=./src ./src -s --cov-config .coveragerc --cov-report html   --- run pytests + cov
+
