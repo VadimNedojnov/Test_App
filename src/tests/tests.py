@@ -134,7 +134,7 @@ def test_sign_up_form_wrong_password2():
     except ValidationError:
         pass
     else:
-        raise ValidationError
+        assert 2 == 1
 
 
 def test_sign_up_form_wrong_phone():
@@ -149,7 +149,7 @@ def test_sign_up_form_wrong_phone():
     except ValidationError:
         pass
     else:
-        raise ValidationError
+        assert 2 == 1
 
 
 def test_sign_up_form_to_short_phone():
@@ -164,7 +164,7 @@ def test_sign_up_form_to_short_phone():
     except ValidationError:
         pass
     else:
-        raise ValidationError
+        assert 2 == 1
 
 
 def test_edit_profile_form():
@@ -185,7 +185,7 @@ def test_edit_profile_form_phone_not_isdigit():
     except ValidationError:
         pass
     else:
-        raise ValidationError
+        assert 2 == 1
 
 
 def test_edit_profile_form_phone_to_short():
@@ -198,7 +198,7 @@ def test_edit_profile_form_phone_to_short():
     except ValidationError:
         pass
     else:
-        raise ValidationError
+        assert 2 == 1
 
 
 def test_apps_files():
