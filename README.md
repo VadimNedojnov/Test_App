@@ -24,6 +24,13 @@ Add ssh key to git repository
   docker-compose -f dc.yml up -d --build
 ```
 
+#### Application migrations:
+
+```bash
+  docker exec -it backend_test_app python ./src/manage.py makemigrations                                    --- makemigration in docker
+  docker exec -it backend_test_app python ./src/manage.py migrate
+```
+
 ## How to run web interface and tests
 
 #### Directory structure
